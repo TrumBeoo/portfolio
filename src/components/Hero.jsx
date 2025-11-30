@@ -186,7 +186,7 @@ const Hero = () => {
               <Button
                 variant="outlined"
                 size="large"
-                href="/assets/cv.pdf"
+                href="/cv/CV - Trịnh Xuân Trung - Business Analyst.pdf"
                 download
                 onClick={playButtonSound}
                 onMouseEnter={playHoverSound}
