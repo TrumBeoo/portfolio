@@ -65,7 +65,7 @@ const Skills3D = () => {
     { name: 'MySQL', icon: '🗄️', level: 'Advanced', color: '#339933' },
     { name: 'GitHub', icon: '🐙', level: 'Expert', color: '#181717' },
     { name: 'MongoDB', icon: '🍃', level: 'Intermediate', color: '#2496ED' },
-    { name: 'JavaScript', icon: '🟨', level: 'Expert', color: '#F7DF1E' },
+    { name: 'Canva', icon: '🎨', level: 'Expert', color: '#F7DF1E' },
     { name: 'AI', icon: '🤖', level: 'Intermediate', color: '#FF9900' },
     { name: 'Power BI', icon: '📊', level: 'Intermediate', color: '#E97627' },
   ];
