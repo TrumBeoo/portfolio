@@ -137,14 +137,16 @@ const About = () => {
                   👋
                 </Typography>
                 <Typography
-                  variant="h6"
+                  variant="h5"
                   sx={{
                     color: 'rgba(255, 255, 255, 0.8)',
                     lineHeight: 1.8,
                     mb: 2,
                   }}
                 >
-                  Sinh viên năm 4 ngành Công nghệ thông tin – Trường Đại học Công Nghiệp Quảng Ninh.
+                  Hiện là sinh viên năm cuối ngành Công Nghệ Thông Tin, 
+                  với niềm đam mê và mong muốn trở thành Thực tập sinh Business Analyst, 
+                  luôn giữ thái độ chủ động, sự ham học hỏi, không ngừng tích lũy kinh nghiệm và hoàn thiện bản thân.
                 </Typography>
                 <Typography
                   variant="h6"
@@ -153,7 +155,7 @@ const About = () => {
                     lineHeight: 1.8,
                   }}
                 >
-                  Tôi yêu thích lập trình Web, App, AI, phân tích nghiệp vụ - dữ liệu và luôn tìm tòi công nghệ mới để tạo ra sản phẩm thực tế.
+                  
                 </Typography>
           </Box>
         </MotionBox>
@@ -187,9 +189,12 @@ const About = () => {
                 mb: 3,
               }}
             >
-              Tôi mong muốn phát triển sự nghiệp trong lĩnh vực AI ứng dụng & phát triển phần mềm thông minh.
-              Trong tương lai gần, tôi hướng đến vị trí Software Engineer / AI Developer, nơi tôi có thể đóng góp
-              và học hỏi không ngừng để tạo ra các giải pháp thực tế phục vụ cộng đồng.
+              Trở thành Business Analyst chuyên nghiệp, 
+              có khả năng dẫn dắt yêu cầu trong các dự án lớn. 
+              Phát triển chuyên môn sâu trong các lĩnh vực như Product Analysis, System Analysis, 
+              phát huy hết khả năng làm việc để góp phần vào sự phát triển của công ty và việc tối ưu 
+              quy trình nghiệp vụ giúp xây dựng giải pháp mang lại giá trị cho doanh nghiệp và người dùng.
+
             </Typography>
             <Box
               sx={{

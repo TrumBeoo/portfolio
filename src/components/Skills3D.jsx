@@ -60,14 +60,14 @@ extend({ MeshSineMaterial, BentPlaneGeometry })
 
 const Skills3D = () => {
   const skills = [
-    { name: 'React', icon: '⚛️', level: 'Advanced', color: '#61DAFB' },
+    { name: 'Jira', icon: '⚙️', level: 'Advanced', color: '#61DAFB' },
     { name: 'Python', icon: '🐍', level: 'Expert', color: '#3776AB' },
     { name: 'MySQL', icon: '🗄️', level: 'Advanced', color: '#339933' },
     { name: 'GitHub', icon: '🐙', level: 'Expert', color: '#181717' },
     { name: 'MongoDB', icon: '🍃', level: 'Intermediate', color: '#2496ED' },
     { name: 'JavaScript', icon: '🟨', level: 'Expert', color: '#F7DF1E' },
-    { name: 'SQL', icon: '🗄️', level: 'Advanced', color: '#336791' },
-    { name: 'AWS', icon: '☁️', level: 'Intermediate', color: '#FF9900' },
+    { name: 'AI', icon: '🤖', level: 'Intermediate', color: '#FF9900' },
+    { name: 'Power BI', icon: '📊', level: 'Intermediate', color: '#E97627' },
   ];
 
   // Generate SVG data URL for skill cards front

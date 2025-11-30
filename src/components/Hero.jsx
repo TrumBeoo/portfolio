@@ -106,7 +106,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
           >
             <MotionChip
-              label="IT Business Analyst"
+              label="IT Business Analyst Intern"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -148,7 +148,7 @@ const Hero = () => {
                 sequence={[
                   'Sinh viên Công nghệ thông tin',
                   2000,
-                  'Yêu thích phân tích nghiệp vụ',
+                  'Yêu thích phân tích nghiệp vụ - kinh doanh',
                   2000,
                   'Cầu nối giữa kỹ thuật và kinh doanh',
                   2000,
@@ -322,7 +322,7 @@ const Hero = () => {
                     Trịnh Xuân Trung
                   </Typography>
                   <Typography variant="body1" sx={{ mb: 1 }}>
-                    IT Business Analyst
+                    IT Business Analyst Intern
                   </Typography>
                   <Typography variant="body2" sx={{ opacity: 0.9 }}>
                     Passionate about bridging technology and business
