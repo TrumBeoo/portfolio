@@ -80,7 +80,7 @@ const Navbar = () => {
             fullWidth
             variant="contained"
             startIcon={<DownloadIcon />}
-            href="/cv/CV - Trịnh Xuân Trung - Business Analyst.pdf"
+            href="/cv/CV.pdf"
             download
             onClick={playButtonSound}
           >
@@ -143,7 +143,7 @@ const Navbar = () => {
                 <Button
                   variant="contained"
                   startIcon={<DownloadIcon />}
-                  href="/cv/CV - Trịnh Xuân Trung - Business Analyst.pdf"
+                  href="/cv/CV.pdf"
                   download
                   onClick={playButtonSound}
                   sx={{ ml: 2 }}
