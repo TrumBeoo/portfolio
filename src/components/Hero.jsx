@@ -18,7 +18,6 @@ import {
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { Link } from 'react-router-dom';
-import { useSound } from '../hooks/useSound';
 import { useInView } from 'react-intersection-observer';
 
 const MotionBox = motion(Box);
@@ -28,9 +27,7 @@ const MotionChip = motion(Chip);
 const Hero = () => {
   const vantaRef = useRef(null);
   const vantaEffect = useRef(null);
-  const { playLoadSound, playButtonSound, playHoverSound } = useSound();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const hasPlayedLoadSound = useRef(false);
 
   useEffect(() => {
     if (window.VANTA && window.THREE) {
@@ -52,15 +49,6 @@ const Hero = () => {
       if (vantaEffect.current) vantaEffect.current.destroy();
     };
   }, []);
-
-  useEffect(() => {
-    if (inView && !hasPlayedLoadSound.current) {
-      setTimeout(() => {
-        playLoadSound();
-        hasPlayedLoadSound.current = true;
-      }, 500);
-    }
-  }, [inView, playLoadSound]);
 
   return (
     <Box
@@ -106,7 +94,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
           >
             <MotionChip
-              label="IT Business Analyst Intern"
+              label="System Administrator"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -146,12 +134,14 @@ const Hero = () => {
             <Box sx={{ minHeight: 80, mb: 4 }}>
               <TypeAnimation
                 sequence={[
-                  'Sinh viên Công nghệ thông tin',
+                  'Tốt nghiệp ngành Công nghệ thông tin',
                   2000,
-                  'Yêu thích phân tích nghiệp vụ - kinh doanh',
-                  2000,
+                  'IT Business Analyst',
+                  1500,
+                  'System Admin',
+                  1500,
                   'Cầu nối giữa kỹ thuật và kinh doanh',
-                  2000,
+                  1500,
                 ]}
                 wrapper="span"
                 speed={50}
@@ -169,8 +159,6 @@ const Hero = () => {
                 <Button
                   variant="contained"
                   size="large"
-                  onClick={playButtonSound}
-                  onMouseEnter={playHoverSound}
                   sx={{
                     bgcolor: 'white',
                     color: 'primary.main',
@@ -188,8 +176,6 @@ const Hero = () => {
                 size="large"
                 href="/cv/CV.pdf"
                 download
-                onClick={playButtonSound}
-                onMouseEnter={playHoverSound}
                 sx={{
                   borderColor: 'white',
                   color: 'white',
@@ -208,7 +194,7 @@ const Hero = () => {
               {[
                 { icon: GitHubIcon, url: 'https://github.com/TrumBeoo' },
                 { icon: LinkedInIcon, url: '' },
-                { icon: EmailIcon, url: '' },
+                { icon: EmailIcon, url: 'trung.it.admin@gmail.com' },
               ].map((social, index) => (
                 <motion.div
                   key={index}
@@ -221,8 +207,6 @@ const Hero = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={playButtonSound}
-                    onMouseEnter={playHoverSound}
                     sx={{
                       bgcolor: 'rgba(255, 255, 255, 0.2)',
                       color: 'white',
@@ -322,7 +306,7 @@ const Hero = () => {
                     Trịnh Xuân Trung
                   </Typography>
                   <Typography variant="body1" sx={{ mb: 1 }}>
-                    IT Business Analyst Intern
+                    System Admin
                   </Typography>
                   <Typography variant="body2" sx={{ opacity: 0.9 }}>
                     Passionate about bridging technology and business

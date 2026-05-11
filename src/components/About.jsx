@@ -31,24 +31,12 @@ import {
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useSound } from '../hooks/useSound';
 
 const MotionBox = motion(Box);
 const MotionPaper = motion(Paper);
 
 const About = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const { playLoadSound, playHoverSound } = useSound();
-  const hasPlayedLoadSound = React.useRef(false);
-
-  React.useEffect(() => {
-    if (inView && !hasPlayedLoadSound.current) {
-      setTimeout(() => {
-        playLoadSound();
-        hasPlayedLoadSound.current = true;
-      }, 300);
-    }
-  }, [inView, playLoadSound]);
 
 
 
@@ -98,11 +86,10 @@ const About = () => {
             <MotionBox
               whileHover={{ scale: 1.05, rotate: 5 }}
               transition={{ type: 'spring', stiffness: 300 }}
-              onMouseEnter={playHoverSound}
               sx={{ display: 'inline-block', cursor: 'pointer' }}
             >
               <Avatar
-                src="/images/me1.png"
+                src="/images/me.png"
                 sx={{
                   width: { xs: 200, md: 250 },
                   height: { xs: 200, md: 250 },
@@ -144,9 +131,10 @@ const About = () => {
                     mb: 2,
                   }}
                 >
-                  Hiện là sinh viên năm cuối ngành Công Nghệ Thông Tin, 
-                  với niềm đam mê và mong muốn trở thành Thực tập sinh Business Analyst, 
-                  luôn giữ thái độ chủ động, sự ham học hỏi, không ngừng tích lũy kinh nghiệm và hoàn thiện bản thân.
+                  Tốt nghiệp ngành Công Nghệ Thông Tin, 
+                  với định hướng phát triển trong lĩnh vực System Administration, 
+                  luôn giữ tinh thần chủ động, ham học hỏi và không ngừng nâng cao 
+                  kỹ năng chuyên môn trong vận hành, hỗ trợ và quản trị hệ thống CNTT.
                 </Typography>
                 <Typography
                   variant="h6"
@@ -189,12 +177,9 @@ const About = () => {
                 mb: 3,
               }}
             >
-              Trở thành Business Analyst chuyên nghiệp, 
-              có khả năng dẫn dắt yêu cầu trong các dự án lớn. 
-              Phát triển chuyên môn sâu trong các lĩnh vực như Product Analysis, System Analysis, 
-              phát huy hết khả năng làm việc để góp phần vào sự phát triển của công ty và việc tối ưu 
-              quy trình nghiệp vụ giúp xây dựng giải pháp mang lại giá trị cho doanh nghiệp và người dùng.
-
+              Mục tiêu trở thành System Administrator chuyên nghiệp, có khả năng quản lý hệ thống, 
+              xử lý sự cố và đảm bảo hoạt động CNTT ổn định, góp phần nâng cao hiệu quả vận hành và 
+              hỗ trợ người dùng trong doanh nghiệp.
             </Typography>
             <Box
               sx={{

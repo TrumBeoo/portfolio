@@ -24,7 +24,6 @@ import {
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useSound } from '../hooks/useSound';
 
 const MotionPaper = motion(Paper);
 const MotionBox = motion(Box);
@@ -35,8 +34,6 @@ const Contact = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  const { playLoadSound, playButtonSound, playHoverSound, playSuccessSound } = useSound();
-  const hasPlayedLoadSound = React.useRef(false);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -50,8 +47,8 @@ const Contact = () => {
     {
       icon: EmailIcon,
       title: 'Email',
-      value: 'txtrung30302@gmail.com',
-      link: 'mailto:txtrung30302@gmail.com',
+      value: 'trung.it.admin@gmail.com',
+      link: 'mailto:trung.it.admin@gmail.com',
       color: '#2563eb',
     },
     {
@@ -73,7 +70,7 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: LinkedInIcon,
-      url: 'https://linkedin.com/in/',
+      url: 'https://',
       color: '#0077b5',
     },
     {
@@ -92,21 +89,11 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    playSuccessSound();
     console.log('Form submitted:', formData);
     setShowAlert(true);
     setTimeout(() => setShowAlert(false), 5000);
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
-
-  React.useEffect(() => {
-    if (inView && !hasPlayedLoadSound.current) {
-      setTimeout(() => {
-        playLoadSound();
-        hasPlayedLoadSound.current = true;
-      }, 300);
-    }
-  }, [inView, playLoadSound]);
 
   return (
     <Box
@@ -186,8 +173,6 @@ const Contact = () => {
                   transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
                   component="a"
                   href={info.link}
-                  onClick={playButtonSound}
-                  onMouseEnter={playHoverSound}
                   sx={{
                     textDecoration: 'none',
                     background: 'rgba(255, 255, 255, 0.05)',
@@ -278,8 +263,6 @@ const Contact = () => {
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={playButtonSound}
-                        onMouseEnter={playHoverSound}
                         sx={{
                           width: 50,
                           height: 50,
@@ -496,7 +479,6 @@ const Contact = () => {
                     type="submit"
                     fullWidth
                     startIcon={<SendIcon />}
-                    onMouseEnter={playHoverSound}
                     sx={{
                       py: 1.2,
                       background: 'linear-gradient(135deg, #3b5df3ff)',

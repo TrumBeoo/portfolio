@@ -5,7 +5,6 @@ import * as THREE from 'three';
 import { Canvas, useFrame, extend } from '@react-three/fiber';
 import { Image, Environment, ScrollControls, useScroll, useTexture } from '@react-three/drei';
 import { easing } from 'maath';
-import { useSound } from '../hooks/useSound';
 
 // Custom geometries and materials from skills folder
 class BentPlaneGeometry extends THREE.PlaneGeometry {
@@ -95,19 +94,9 @@ const Skills3D = () => {
   function Rig(props) {
     const ref = useRef()
     const scroll = useScroll()
-    const { playWhooshSound } = useSound()
-    const lastRotation = useRef(0)
     
     useFrame((state, delta) => {
-      const newRotation = -scroll.offset * (Math.PI * 2)
-      const rotationDiff = Math.abs(newRotation - lastRotation.current)
-      
-      if (rotationDiff > 0.02) {
-        playWhooshSound()
-        lastRotation.current = newRotation
-      }
-      
-      ref.current.rotation.y = newRotation
+      ref.current.rotation.y = -scroll.offset * (Math.PI * 2)
       state.events.update()
       easing.damp3(state.camera.position, [-state.pointer.x * 2, state.pointer.y + 1.5, 10], 0.3, delta)
       state.camera.lookAt(0, 0, 0)

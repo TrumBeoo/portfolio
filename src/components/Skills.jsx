@@ -15,7 +15,6 @@ import {
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useSound } from '../hooks/useSound';
 
 const MotionBox = motion(Box);
 const MotionPaper = motion(Paper);
@@ -25,17 +24,6 @@ const Skills = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  const { playLoadSound, playHoverSound } = useSound();
-  const hasPlayedLoadSound = React.useRef(false);
-
-  React.useEffect(() => {
-    if (inView && !hasPlayedLoadSound.current) {
-      setTimeout(() => {
-        playLoadSound();
-        hasPlayedLoadSound.current = true;
-      }, 300);
-    }
-  }, [inView, playLoadSound]);
 
   const businessSkills = [
     { name: 'Requirements Analysis', level: 90 },
@@ -242,7 +230,6 @@ const Skills = () => {
                   >
                     <Chip
                       label={skill}
-                      onMouseEnter={playHoverSound}
                       sx={{
                         bgcolor: 'rgba(211, 255, 78, 0.15)',
                         color: '#84cc16',

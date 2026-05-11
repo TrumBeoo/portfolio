@@ -17,7 +17,6 @@ import {
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useSound } from '../hooks/useSound';
 
 const MotionCard = motion(Card);
 const MotionBox = motion(Box);
@@ -27,17 +26,6 @@ const Certificates = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  const { playLoadSound, playButtonSound, playHoverSound } = useSound();
-  const hasPlayedLoadSound = React.useRef(false);
-
-  React.useEffect(() => {
-    if (inView && !hasPlayedLoadSound.current) {
-      setTimeout(() => {
-        playLoadSound();
-        hasPlayedLoadSound.current = true;
-      }, 300);
-    }
-  }, [inView, playLoadSound]);
 
   const certificates = [
     {
@@ -133,7 +121,6 @@ const Certificates = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                onMouseEnter={playHoverSound}
                 sx={{
                   width: 560,
                   height: 420,
@@ -237,7 +224,6 @@ const Certificates = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     fullWidth
-                    onClick={playButtonSound}
                     sx={{
                       background: 'linear-gradient(45deg, #667eea, #764ba2)',
                       color: 'white',

@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useSound } from '../hooks/useSound';
 
 const MotionBox = motion(Box);
 
@@ -17,8 +16,6 @@ const Projects = () => {
   const [flippedCards, setFlippedCards] = React.useState(new Set());
   const flippedCardsRef = useRef(new Set());
   const [selectedCard, setSelectedCard] = React.useState(null);
-  const { playClickSound, playHoverSound, playLoadSound } = useSound();
-  const hasPlayedLoadSound = useRef(false);
 
   const projectData = [
     { 
@@ -72,16 +69,11 @@ const Projects = () => {
   ];
 
   const handleCardClick = (index) => {
-    playClickSound();
     setSelectedCard(index);
   };
 
   const handleCloseModal = () => {
     setSelectedCard(null);
-  };
-
-  const handleCardHover = () => {
-    playHoverSound();
   };
 
   const handleCardMouseLeave = (index) => {
@@ -92,15 +84,6 @@ const Projects = () => {
       return newSet;
     });
   };
-
-  useEffect(() => {
-    if (inView && !hasPlayedLoadSound.current) {
-      setTimeout(() => {
-        playLoadSound();
-        hasPlayedLoadSound.current = true;
-      }, 300);
-    }
-  }, [inView, playLoadSound]);
 
   useEffect(() => {
     const cards = cardsRef.current;
@@ -158,7 +141,6 @@ const Projects = () => {
       if (card) {
         card.addEventListener('mousemove', (e) => handleMouseMove(e, card));
         card.addEventListener('mouseout', () => handleMouseOut(card, index));
-        card.addEventListener('mouseenter', handleCardHover);
       }
     });
 
@@ -167,7 +149,6 @@ const Projects = () => {
         if (card) {
           card.removeEventListener('mousemove', (e) => handleMouseMove(e, card));
           card.removeEventListener('mouseout', () => handleMouseOut(card, index));
-          card.removeEventListener('mouseenter', handleCardHover);
         }
       });
     };

@@ -21,14 +21,11 @@ import {
 } from '@mui/icons-material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useSound } from '../hooks/useSound';
-
-
+import { VercelNavTabs } from './ui/vercel-tabs';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-  const { playNavSound, playButtonSound } = useSound();
 
   const menuItems = [
     { name: 'Home', to: '/' },
@@ -56,8 +53,7 @@ const Navbar = () => {
         {menuItems.map((item) => (
           <ListItem key={item.to} disablePadding>
             <RouterLink to={item.to} style={{ width: '100%', textDecoration: 'none', color: 'inherit' }}>
-              <ListItemButton 
-                onClick={playNavSound}
+            <ListItemButton 
                 sx={{ 
                   textAlign: 'center',
                   bgcolor: location.pathname === item.to ? 'primary.main' : 'transparent',
@@ -82,7 +78,6 @@ const Navbar = () => {
             startIcon={<DownloadIcon />}
             href="/cv/CV.pdf"
             download
-            onClick={playButtonSound}
           >
             Download CV
           </Button>
@@ -123,30 +118,14 @@ const Navbar = () => {
               </RouterLink>
 
               {/* Desktop Menu */}
-              <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 1 }}>
-                {menuItems.map((item) => (
-                  <RouterLink key={item.to} to={item.to} style={{ textDecoration: 'none' }}>
-                    <Button
-                      onClick={playNavSound}
-                      sx={{
-                        color: location.pathname === item.to ? 'primary.main' : 'white',
-                        fontWeight: location.pathname === item.to ? 700 : 500,
-                        '&:hover': { color: 'primary.main' },
-                        borderBottom: location.pathname === item.to ? '2px solid' : 'none',
-                        borderColor: 'primary.main',
-                      }}
-                    >
-                      {item.name}
-                    </Button>
-                  </RouterLink>
-                ))}
+              <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 2 }}>
+                <VercelNavTabs items={menuItems} />
                 <Button
                   variant="contained"
                   startIcon={<DownloadIcon />}
                   href="/cv/CV.pdf"
                   download
-                  onClick={playButtonSound}
-                  sx={{ ml: 2 }}
+                  sx={{ ml: 1 }}
                 >
                   Download CV
                 </Button>
